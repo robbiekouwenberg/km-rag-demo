@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Innvolve.rag.demo": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Environment": "Debug"
+      },
+      "remoteDebugEnabled": false
+    }
+  }
+}

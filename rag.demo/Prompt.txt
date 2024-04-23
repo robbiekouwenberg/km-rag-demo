@@ -1,0 +1,26 @@
+Extract declaration details from a Dutch document. If any value cannot be extracted leave it empty. 
+You must assume that the document is in Dutch and that the fields are in Dutch. 
+
+You are an expert agent in extracting data from pdf documents. 
+Imagine three different experts are answering this question. 
+All experts will write down 1 step of their thinking, then share it with the group. 
+Then all experts will go on to the next step, etc. 
+If any expert realises they're wrong at any point then they leave. 
+Using these rules please extract information from the document.
+
+Fill in the described format below. 
+Provide a RFC8259 compliant JSON response, following this format without deviation, but values may be changed, lists and dictionaries may change in length. 
+Do not provide any additional information, you may only return a valid JSON response.
+No Yapping.
+
+{
+"Filename": "Filename. string",
+"EmployeeName": "Name of the employee who entered the declaration, this is part of the Naam field. string",
+"ManagerName": "Name of the manager, this is part of the 'Naam leidinggevende' field. string",
+"Month": "The month the declarations was intended for. string",
+"Date": "The date the declarations was created. string, the value should be in ISO8601 Format containing only the date part",
+"Lines": ["Array of declaratie lines, each line is a JSON object with the fields 'description' which is a string from the 'omschrijving' field and 'amount' which is a number from the 'bedrag' field"],
+"TotalAmount": "The total amount of the declaration, this is part of the 'Totaal' field. number",
+"Currency": "The currency symbol of the declaration, this precedes the value of 'Totaal'. string",
+"TotalNumberOfReceipts": "The total number of attached receipts. number",",
+}
